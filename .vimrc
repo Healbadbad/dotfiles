@@ -39,7 +39,7 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 
-colorscheme molokai
+"colorscheme molokai
 
 "#########################################
 "# Coding Style			 	 #
@@ -62,6 +62,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 set timeoutlen=1000 ttimeoutlen=0
 
+set backspace=indent,eol,start
 "let mapleader = ","
 "let g:mapleader = ","  
 let mapleader = " "
@@ -91,3 +92,4 @@ let g:ycm_enable_diagnostic_highlighting = 0
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
+color desert

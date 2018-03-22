@@ -6,13 +6,20 @@
 # Assume the dotfile directory is ~/dotfiles
 
 # Todo: Change to submodules instead of manually cloning? 
+# Make Powerline optional?
+
+
+#########################################
+# Install Common Packages		#
+#########################################
+                                        
+# get zsh and oh-my-zsh
+sudo apt-get install zsh tmux powerline tig htop fonts-powerline python3 python3-pip
 
 #########################################
 # Install zsh				#
 #########################################
 
-# get zsh and oh-my-zsh
-sudo apt-get install zsh tmux powerline tig htop fonts-powerline
 chsh -s $(which zsh)
 # Automatic installation of oh my zsh
 #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -53,6 +60,8 @@ vim +PluginInstall +qall
 # Create Symlinks			#
 #########################################
 
-ln -sv "~/dotfiles/.vimrc" ~
-ln -sv "~/dotfiles/.zshrc" ~
-ln -sv "~/dotfiles/.tmux.conf" ~
+ln -sv "$HOME/dotfiles/.zshrc" ~
+ln -sv "$HOME/dotfiles/.vimrc" ~
+ln -sv "$HOME/dotfiles/.aliases.sh" ~
+ln -sv "$HOME/dotfiles/.functions.sh" ~
+ln -sv "$HOME/dotfiles/.tmux.conf" ~
