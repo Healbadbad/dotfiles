@@ -8,13 +8,28 @@
 # Todo: Change to submodules instead of manually cloning? 
 # Make Powerline optional?
 
+if [ $(uname) = "Darwin" ]; then MAC=1; else MAC=""; fi;
+if [ $MAC ]
+then
+    echo "Running install on MacOS, using brew, etc..."
+    PKG_MGR="brew"
+else
+    echo "Running install al Linux, using apt, etc..."
+    PKG_MGR="apt"
+fi
 
 #########################################
 # Install Common Packages		#
 #########################################
                                         
 # get zsh and oh-my-zsh
-sudo apt-get install zsh tmux powerline tig htop fonts-powerline python3 python3-pip
+PKGS="zsh tmux powerline tig htop fonts-powerline python3 python3-pip"
+if [ $MAC ]
+then
+    sudo apt-get install $PKGS
+else
+    brew install $PKGS
+fi
 
 #########################################
 # Install zsh				#
@@ -65,3 +80,4 @@ ln -sv "$HOME/dotfiles/.vimrc" ~
 ln -sv "$HOME/dotfiles/.aliases.sh" ~
 ln -sv "$HOME/dotfiles/.functions.sh" ~
 ln -sv "$HOME/dotfiles/.tmux.conf" ~
+touch ~/.untracked_aliases.sh

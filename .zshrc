@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+if [ $(uname) = "Darwin" ]; then MAC=1; else MAC=""; fi;
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/dotfiles/oh-my-zsh #/Users/nblank/.oh-my-zsh
 bindkey -v
@@ -61,17 +63,20 @@ bindkey -M viins "^ " globalias
 # normal space during searches
 bindkey -M isearch " " magic-space
 
+# Setup Vim Alias
+if [ $MAC ]
+then
+    alias vim='/Applications/MacVim.app/Contents/MacOS/vim'
+else
+    alias vim='~/dotfiles/vim/src/vim'
+fi
 
-
-
-# TODO: Change
-# alias vim='/Applications/MacVim.app/Contents/MacOS/vim'
-alias vim='~/dotfiles/vim/src/vim'
 #export PS1="\[\033[0;33m\]=== \u@\h: \[\033[1;33m\]\w \[\033[0;33m\]\$ \[\033[0;0m\]"
 
 # Powerline
 #. /Users/nblank/anaconda/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 # TODO: This is really slow, better would be to do which pip/3, then go from there 
+# May be better to hardcode this...
 source `pip3 --disable-pip-version-check show powerline-status | grep Location | awk '{print $2}'`/powerline/bindings/zsh/powerline.zsh
 
 export KEYTIMEOUT=1
@@ -90,3 +95,4 @@ LS_COLORS='rs=0:di=01;36:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:c
 export EDITOR='vim'
 source ~/.aliases.sh
 source ~/.functions.sh
+source ~/.untracked_aliases.sh

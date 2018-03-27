@@ -18,6 +18,8 @@ Plugin 'https://github.com/Valloric/YouCompleteMe.git'
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plugin 'https://github.com/easymotion/vim-easymotion.git'
 Plugin 'https://github.com/majutsushi/tagbar.git'
+Plugin 'https://github.com/scrooloose/nerdtree'
+Plugin 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 
@@ -39,7 +41,8 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 
-"colorscheme molokai
+colorscheme molokai
+"color desert
 
 "#########################################
 "# Coding Style			 	 #
@@ -82,6 +85,9 @@ nnoremap gsv :so $MYVIMRC<CR>
 " Tagbar
 nnoremap <silent> <Leader>m :TagbarToggle<CR>
 
+" NerdTree
+map <C-n> :NERDTreeToggle<CR>
+
 " YouCompleteMe
 " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
@@ -92,4 +98,3 @@ let g:ycm_enable_diagnostic_highlighting = 0
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
-color desert
