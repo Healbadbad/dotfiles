@@ -71,10 +71,10 @@ set backspace=indent,eol,start
 let mapleader = " "
 let g:mapleader = " "  
 map <Leader> <Plug>(easymotion-prefix)
-nnoremap <leader>p "*p
-nnoremap <leader>P "*P
-nnoremap <leader>y "*y
-nnoremap <leader>Y "*Y
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+nnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
 nnoremap gev :e $MYVIMRC<CR>
 nnoremap gsv :so $MYVIMRC<CR>
 
@@ -83,10 +83,11 @@ nnoremap gsv :so $MYVIMRC<CR>
 "#########################################
 
 " Tagbar
-nnoremap <silent> <Leader>m :TagbarToggle<CR>
+"nnoremap <silent> <Leader>m :TagbarToggle<CR>
+nnoremap <Leader>m :TagbarToggle<CR>
 
 " NerdTree
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <Leader>q :NERDTreeToggle<CR>
 
 " YouCompleteMe
 " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'

@@ -74,13 +74,19 @@ fi
 #export PS1="\[\033[0;33m\]=== \u@\h: \[\033[1;33m\]\w \[\033[0;33m\]\$ \[\033[0;0m\]"
 
 # Powerline
-#. /Users/nblank/anaconda/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-# TODO: This is really slow, better would be to do which pip/3, then go from there 
-# May be better to hardcode this...
-source `pip3 --disable-pip-version-check show powerline-status | grep Location | awk '{print $2}'`/powerline/bindings/zsh/powerline.zsh
+if [ $MAC ]
+then
+    export PATH=$PATH:/Users/nblank/anaconda/bin/
+    . /Users/nblank/anaconda/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+else
+    # TODO: This is really slow, better would be to do which pip/3, then go from there 
+    # May be better to hardcode this...
+source `python3 -m pip --disable-pip-version-check show powerline-status | grep Location | awk '{print $2}'`/powerline/bindings/zsh/powerline.zsh
+fi
 
 export KEYTIMEOUT=1
 source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 # May have to run on startup
 powerline-daemon -q
