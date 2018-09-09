@@ -79,6 +79,8 @@ then
     export PATH=$PATH:/Users/nblank/anaconda/bin/
     . /Users/nblank/anaconda/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 else
+    export PATH="/opt/anaconda3/bin:$PATH"
+    alias python=/opt/anaconda3/bin/python3
     # TODO: This is really slow, better would be to do which pip/3, then go from there 
     # May be better to hardcode this...
 source `python3 -m pip --disable-pip-version-check show powerline-status | grep Location | awk '{print $2}'`/powerline/bindings/zsh/powerline.zsh

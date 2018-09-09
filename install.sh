@@ -24,11 +24,12 @@ fi
                                         
 # get zsh and oh-my-zsh
 PKGS="zsh tmux powerline tig htop fonts-powerline python3 python3-pip"
+echo $MAC
 if [ $MAC ]
 then
-    sudo apt-get install $PKGS
-else
     brew install $PKGS
+else
+    sudo apt-get install $PKGS
 fi
 
 #########################################
@@ -62,7 +63,12 @@ git clone https://github.com/vim/vim.git
 cd vim
 # install terminal library?
 ./configure || sudo apt-get install ncurses-dev
-./configure
+./configure \
+    --enable-python3interp=yes \
+    --with-python3-config-dir=/usr/lib/python3.5/config 
+#    --enable-pythoninterp=yes \
+#    --with-python-config-dir=/usr/lib/python2.7/config \
+
 make
 sudo make install
 cd ../
